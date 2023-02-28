@@ -6,7 +6,7 @@ def run():
     wordlist = rd()
     wordplayed = lv(position,wordlist)
     print(wordplayed)
-    
+     
 
 if __name__ == '__main__':
     run()
