@@ -7,9 +7,12 @@ def read_level():
     wordlist = sorted(wordlist, key=lambda x: len(x))  ##(1) Lista a ordenar (2) modo de ordenamiento, funciona con key
     return wordlist
 
-def count_level(position,wordlist):
-    wordplayed = wordlist[position]
-    return wordplayed
+def count_level(wordlist,position,flagame):
+    wordplayed = wordlist[position].rstrip()
+    print(type(flagame))
+    if flagame == True: 
+        position += 1
+    return wordplayed, position
 
 
 
