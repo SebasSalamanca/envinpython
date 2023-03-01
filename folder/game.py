@@ -4,30 +4,38 @@ def input_user(wordplayed):
     while flag == True:
         user = input('PLease enter a letter: ').lower()
         flag = False
-        if not user.isalpha():
-            #Luego redireccionar
+        if not user.isalpha(): #Si la letra no corresponde al abecedario
             flag = True
             print('Please enter a letter, not other characters')
-        if len(user) > 1:
+        elif len(user) > 1:
             flag = True
             print('Please enter a letter, not more than one letter')
     return user
 
-def play_game(wordplayed,user,listgame,listgameaux):
-    #wordgame = [user for character in wordplayed if user == character]
-    print(len(listgameaux))
-    truevector = [True for character in wordplayed]
+def play_game(levelflag,wordplayed,user,listgame,listgameaux,lives):
+    flag = 0 
     wordgame = list(map(lambda y: user == y, list(wordplayed)))
-    print(wordgame)
-    flagameuno = list(map(lambda x,y: x*y, truevector, wordgame)) #wordgame
-    flagame = set(flagameuno)
     listgame = [(user) if character == True else('_')for character in wordgame]
-    if len(listgameaux) == 0:
+    if len(listgameaux) == 0 or levelflag == 1:
         listgameaux = ['_' for elementos in listgame]
-    size = len(listgame)
-    for position in range(0,size):
+    for position in range(0,len(listgame)):
         if listgame[position] != '_':
+            flag = 1
             listgameaux[position] = listgame[position]
-    print(listgame)
+    if flag == 0:
+        lives -= 1
+    return listgame,listgameaux,lives
 
-    return flagame,listgame,listgameaux
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
