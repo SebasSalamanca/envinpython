@@ -11,7 +11,7 @@ from folder.rorganice import desicion as ds
 
 def run():
     #system('clear')
-    position,lives,levelflag = 0,5,0
+    position,lives,levelfleg = 0,5,0
     listgame, listgameaux = [],[]
     wordlist = rd()
     while lives > 0:
