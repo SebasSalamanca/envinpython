@@ -13,16 +13,21 @@ def input_user(wordplayed):
             print('Please enter a letter, not more than one letter')
     return user
 
-def play_game(wordplayed,user,listgame):
+def play_game(wordplayed,user,listgame,listgameaux):
     #wordgame = [user for character in wordplayed if user == character]
+    print(len(listgameaux))
     truevector = [True for character in wordplayed]
     wordgame = list(map(lambda y: user == y, list(wordplayed)))
     print(wordgame)
     flagameuno = list(map(lambda x,y: x*y, truevector, wordgame)) #wordgame
     flagame = set(flagameuno)
-    listgameuno = listgame
     listgame = [(user) if character == True else('_')for character in wordgame]
-    definitivo = listgameuno+listgame 
+    if len(listgameaux) == 0:
+        listgameaux = ['_' for elementos in listgame]
+    size = len(listgame)
+    for position in range(0,size):
+        if listgame[position] != '_':
+            listgameaux[position] = listgame[position]
     print(listgame)
-    
-    return flagame,listgame,listgameuno
+
+    return flagame,listgame,listgameaux

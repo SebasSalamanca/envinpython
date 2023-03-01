@@ -13,11 +13,12 @@ def run():
     position = 0
     flagame = False
     listgame = []
+    listgameaux = []
     wordlist = rd()
     while True:
         wordplayed, position = lv(wordlist,position,flagame)
         user = inp(wordplayed)
-        flagame,listgame = gm(wordplayed,user,listgame)    
+        flagame,listgame,listgameaux = gm(wordplayed,user,listgame,listgameaux)    
         if position == 14:
             print('You have rescued the game')
             break
