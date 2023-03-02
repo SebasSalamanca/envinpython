@@ -15,7 +15,7 @@ def count_level(levelflag,wordlist,position,lives):
     return wordplayed,position,lives 
 
 
-def desicion(levelflag, listgameaux): 
+def desicion(levelflag, listgameaux, lives): 
     levelflag = 0 
     deslista = list(filter(lambda x: x == '_', listgameaux))
     if not deslista:
@@ -26,16 +26,24 @@ def desicion(levelflag, listgameaux):
             if not userlevel.isalpha():
                 flag = True
                 print('Please enter a letter y/n, not other characters')
-            if len(userlevel) > 1:
+            elif len(userlevel) > 1:
                 flag = True
                 print('Please enter a letter y/n, not more than one letter')
+            elif userlevel == 'y':
+                flag = False
+            elif userlevel == 'n':
+                flag = False
+            else:
+                flag = True
+                print('Please enter a letter y/n, not other characters')
 
         if userlevel == 'y':
             levelflag = 1
         else:
             levelflag = 0
+            lives = 0
             print('Thank you for playing Hangman game')
-    return levelflag, listgameaux
+    return levelflag, listgameaux, lives
 
 
 
