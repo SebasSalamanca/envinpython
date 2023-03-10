@@ -17,12 +17,7 @@ def run():
     wordlist = rd()
     print(img(5, wordplayed))
     while lives > 0:
-        position = 13
         wordplayed, position, lives = lv(levelflag,wordlist,position,lives)
-<<<<<<< HEAD
-=======
-        position = 13
->>>>>>> origin/master
         one(wordplayed, listgame, deslista)
         user = inp(wordplayed)
         system('clear')
