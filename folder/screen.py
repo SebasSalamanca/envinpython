@@ -1,6 +1,6 @@
 
 
-def images(image):
+def images(image, wordplayed):
     if image == 5:
         template = """
         **  **    ***    **   **  *******   **      **    ***    **   **  
@@ -142,4 +142,5 @@ def images(image):
                         GAME OVER!!!
 
                 """
+        print(f'The correct answer was: ', wordplayed)
     return template

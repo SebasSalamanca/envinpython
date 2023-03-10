@@ -1,4 +1,6 @@
 
+
+
 def read_level():
     wordlist = []
     with open('./folder/data.txt', 'r', encoding='utf-8') as data:
@@ -14,11 +16,16 @@ def count_level(levelflag,wordlist,position,lives):
     wordplayed = wordlist[position].rstrip()
     return wordplayed,position,lives 
 
+def one_time(wordplayed, listgame, deslista):
+    if len(listgame) == 0 or not deslista:
+        auxword = ['_' for character in wordplayed]
+        print(auxword)
 
-def desicion(levelflag, listgameaux, lives): 
-    levelflag = 0 
+
+def desicion(levelflag, listgameaux, lives, position): 
+    levelflag, rescue = 0,0 
     deslista = list(filter(lambda x: x == '_', listgameaux))
-    if not deslista:
+    if not deslista: ##Acá solo entra si está vacía
         flag = True
         while flag == True:
             userlevel = input('You Won!, Do you want to continue with next level? y/n: ').lower()
@@ -39,11 +46,15 @@ def desicion(levelflag, listgameaux, lives):
 
         if userlevel == 'y':
             levelflag = 1
+            if position == 13: 
+                print('You have rescued the GAME congratulations, you are the best!')
+                lives = 0 
+                rescue = 1 
         else:
             levelflag = 0
             lives = 0
             print('Thank you for playing Hangman game')
-    return levelflag, listgameaux, lives
+    return levelflag, listgameaux, lives, deslista, rescue
 
 
 

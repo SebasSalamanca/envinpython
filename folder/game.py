@@ -16,7 +16,7 @@ def input_user(wordplayed):
 
 def play_game(levelflag,wordplayed,user,listgame,listgameaux,lives):
     flag = 0 
-    image = lives ## to screen and now what is the image to show
+    #image = lives ## to screen and now what is the image to show
     wordgame = list(map(lambda y: user == y, list(wordplayed)))
     listgame = [(user) if character == True else('_')for character in wordgame]
     if len(listgameaux) == 0 or levelflag == 1:
@@ -26,11 +26,11 @@ def play_game(levelflag,wordplayed,user,listgame,listgameaux,lives):
             flag = 1
             listgameaux[position] = listgame[position]
     if flag == 1:
-        print(img(image))
+        print(img(lives, wordplayed))
     elif flag == 0:
-        print(img(image))
         lives -= 1
-
+        print(img(lives, wordplayed))
+    print(listgameaux)
     return listgame,listgameaux,lives
 
 
